@@ -53,7 +53,6 @@ uint32_t timestamp = 0;
 uint32_t capturedata[capturenum] = {0};
 int32_t Difftime[capturenum -1] = {0};
 float Meantime = 0;
-float Frequency = 0;
 int RPM = 0;
 int PPR = 12;
 /* USER CODE END PV */
@@ -371,8 +370,8 @@ void SpeedMotor()
 		Sum += Difftime[i];
 	}
 	Meantime = Sum / (float)(capturenum -1);
-//	Frequency = 1/(Meantime*0.000001);
-//	RPM = (Frequency * 60)/(PPR*64);
+//	frequency = 1/(Meantime*0.000001);
+//	RPM = (frequency * 60)/(PPR*64); //PPM / PPR = RPM
 	RPM = 60/(Meantime*0.000001*PPR*64); //gear ratio = 64
 }
 /* USER CODE END 4 */
